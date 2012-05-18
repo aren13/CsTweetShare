@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Settings{% endblock %}
+
+{% block extra_head %}
+{% endblock %}
+
+{% block content %}
+<b>Settings</b>
+<form method="post" action="">
+    {% csrf_token %}
+    {% include "base_form.html" %}
+    <p><input type="submit" value="Submit" /></p>
+</form>
+<p><a href="{% url cts.share.views.change_pass %}">Change Password</a></p>
+{% endblock %}
+

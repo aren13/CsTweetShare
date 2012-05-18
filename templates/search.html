@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Search Friends{% endblock %}
+
+{% block content %}
+<p><b>Search</b></p>
+<p>Enter username or email.</p>
+<form method="post" action="">
+    {% csrf_token %}
+    {% include "base_form.html" %}
+    <input type="submit" value="Submit" />
+</form>
+{% if results %}
+    <br/>
+    <p><b>Results</b></p>
+    {% for r in results %}
+    <p><a href="{% url cts.share.views.profile r.get_profile.url %}">{{ r.username }}</a><br/>
+	<a href="{% url cts.share.views.profile r.get_profile.url %}"><img src={{ r.get_profile.thumbnail_url }} /></a><br/>
+    {%if user != other_user and user not in other_user.get_profile.friends.all %}
+	<a href="{% url cts.share.views.invite r.get_profile.url %}">Send Friend request to {{ r.username }}</a><br/>
+    {% endif %}    
+</p>
+    {% endfor %}
+{% endif %}
+{% endblock %}
+

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %} Sign Up {% endblock %}
+
+{% block content %}
+<b> Sign Up </b>
+<br/>
+<br/>
+<br/>
+<form method="post" action="">
+    {% csrf_token %}
+    {% include "base_form.html" %}
+    <p><input type="submit" value="Register" /></p>
+</form>
+{% endblock %}
+

@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}Manage Friends{% endblock %}
+
+{% block extra_head %}
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#sortable").sortable({
+            placeholder: "ui-state-highlight",
+            update: function() {
+                var order = $(this).sortable('serialize');
+                $.ajax({
+                    type: "POST",
+                    data: order,
+                    url: "/settings/friends/group/set_order/"
+                });
+            }
+        });
+        $("#sortable").disableSelection();
+    });
+</script>
+{% endblock %}
+
+{% block content %}
+<h2>Friends</h1>
+<p>
+{% for f in user.get_profile.friends.all %}
+    <a href="{% url cts.share.views.manage_friend f.id %}">{{ f.get_full_name }}</a><br/>
+{% empty %}
+    You don't have any friends yet. <a href="{% url cts.share.views.search %}">Find Friends</a>
+{% endfor %}
+</p>
+{% endblock %}
+

@@ -1,0 +1,203 @@
+* {
+    margin:     0;
+    padding:    0;
+    border:     0;
+    outline:    0;
+    font-size:  100%;
+}
+
+html,body       {height: 100%;}
+
+html {
+    font-size:  62.5%; /* 1em is now equal to 10px */
+    height:     100%;
+}
+
+body {
+    background: #512C1C;
+    color:      #FFF;
+    font:       normal 1.3em Arial,Mono,Monospace;
+    height:     100%;
+}
+
+input {
+    padding: 2px;
+}
+
+p {
+    line-height:1.4em;
+    padding:    0.7em 0 0.7em;
+}
+
+a:link {
+    color: black;
+}
+a:visited {
+    color: black;
+}
+a:hover {
+    color: #33CCFF;
+}
+
+h1 {font-size:  3.2em;}
+h2 {font-size:  2.4em;}
+h3 {font-size:  1.4em;}
+h4 {font-size:  2em;}
+h5 {font-size:  1.8em;}
+h6 {font-size:  1.6em;}
+
+h1,h2,h3,h4,h5,h6 { 
+    margin-bottom:0.2em;
+    color:      #000;
+    font-style: normal;
+    font-weight:normal;
+}
+
+.code {
+    margin: 3px 5px;
+    padding: 8px;
+    background: #181818;
+}
+
+blockquote {
+    border-bottom:2px solid #252525;
+    border-top: 2px solid #252525;
+    display:    block;
+    margin:     0.6em 0 1.6em;
+    padding:    0.8em 1em 0.2em 46px;
+}
+
+td {padding:0.5em;}
+
+#wrap {
+    min-height: 100%;
+	width:  80%;
+    margin:     0 0 -20px; 
+}
+
+#header_wrapper {background: #512C1C;} /* Make Banner TweetShare :) lat Be carefull not px percantage detail.  */
+#header {
+    background: #512C1C;
+    font-size:  1.4em; 
+    font-family:Arial;
+    margin:     0 50px;
+    height:     100px;
+
+}
+#header a { text-decoration: none; }
+#header h1:hover {color: #FF0;}
+#header p {
+    text-align: right;
+    height:     100px;
+}
+
+#nav {
+    margin:     10px 50px 0;
+    background: #2381A1;
+	width: 95%;
+}
+#nav li {
+    display:    inline;
+    font-size:  1.6em;
+    padding:    0 20px;
+}
+#nav a {
+    color:      #784129;
+    padding:    0 20px;
+    text-decoration: none;
+}
+#nav a:hover {
+    color:      #222;
+    background: #33CCFF;
+}
+
+#main {
+    background: #2381A1;
+    margin:     10px 50px;
+    padding:    10px;
+	width: 93%;
+    overflow:   auto;
+
+	
+}
+#main img {
+    max-width:  100%;
+    padding:    15px 5px;
+
+}
+
+#content {
+    float:      left;
+    width:      75%;
+    padding-right:3%;
+    border-right:2px solid #8C4C30;
+}
+#main img {
+    padding:    15px 5px;
+}
+#side {
+    float:      right;
+    width:      20%;
+}
+
+#content h2, #content h3, #content h4, #content h5, #content h6, #side h3{
+    background: #512C1C;
+    padding:    0.2em 0.5em;
+    text-align: center;
+    clear:      both;
+	color: #33CCFF;
+}
+#content h2:hover, #content h3:hover, #content h4:hover, #content h5:hover, #content h6:hover, #side h3:hover{
+    color:      #8C4C30;
+}
+
+
+
+
+#push {
+    background: #512C1C;
+    height:     20px;      /* SAME AS FOOTER HEIGHT */
+}
+
+#footer {
+    background: #2381A1;
+    height:     20px;
+    clear:      both;
+    padding:    10px ;
+	width: 100%;
+}
+
+.comment {
+    background: #613A30;
+    margin: 10px;
+    padding: 5px;
+}
+
+.subcomment {
+    background: #8C4C30;
+    margin: 10px 0px 0px 25px;
+    padding: 5px;
+}
+
+.row1 {
+    background: #FFF;
+}
+.row2 {
+    background: #282828;
+}
+.red_row1 {
+    background: #900;
+}
+.red_row2 {
+    background: #711;
+}
+
+.right  {float: right;}
+.left   {float: left;}
+	
+
+.ui-state-highlight {
+    height: 1.5em;
+    line-height: 1.2em;
+}
+

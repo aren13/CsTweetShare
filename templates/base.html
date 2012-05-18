@@ -1,0 +1,94 @@
+{% load i18n %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+{% block html_declare %}
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+{% endblock %}
+    <head>
+        <title>{% block title %}{% endblock %} | CsTweetShare</title>
+        <link type="text/css" rel="stylesheet" href="/cts/css/cts.css" />
+        <link type="text/css" rel="stylesheet" href="/cts/css/jquery-ui.css" />
+
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+        {% block extra_head %}
+        {% endblock %}
+    </head>
+    <body>
+        {% block extra_body %}
+        {% endblock %}
+		<center>
+        <div id="wrap" >
+            <div id="header_wrapper">
+                <div id="header">
+                    <a href="/"><img src="/cts/images/logo.png"></a>
+                </div>
+            </div>
+            <div id="nav">
+                {% if user.is_authenticated %}
+                    <center><ul>
+                        <li><a href="{% url tweetboard %}">Tweetboard</a></li>
+                        <li><a href="{% url settings %}">Settings</a></li>
+                        <li><a href="{% url profile user.get_profile.url %}">Profile</a></li>
+                        <li><a href="{% url search %}">Search</a></li>
+						<li><a href="{% url about %}">About</a></li>
+                        <li><a href="{% url logout %}">Logout</a></li>
+                    </ul></center> 
+				{% else %}
+                    <center><ul>
+                        <li><a href="{% url login %}">Log in</a></li>
+                        <li><a href="{% url register %}">Sign Up</a></li>
+						<li><a href="{% url about %}">About</a></li>
+                    </ul></center> 
+	
+                {% endif %}
+            </div>
+            <div id="main">
+                <div id="content">
+                    {% block content %}
+                    {% endblock %}
+                    {% block main_content %}
+                    {% endblock %}
+                    <hr/>
+                </div>
+                <div id="side">
+                    {% if user.is_authenticated %}
+                        <p>
+                        <h3>Friend Request(s)</h3><br/>
+                        {% for inv in user.get_profile.invites.all %}
+                        Invite from {{ inv.sender.get_profile }} on {{ inv.sent }}<br/>
+                            <a href="{% url accept_inv inv.sender.get_profile.url %}">Accept</a> /
+                            <a href="{% url ignore_inv inv.sender.get_profile.url %}">Ignore</a>
+                        {% empty %}
+                            Sorry, There is no Friend Request. Maybe You can <a href="{% url search %}">Find your Friends</a>.
+                        {% endfor %}
+                        </p>
+					<h3>Friends</h3>
+					<p>
+					{% for f in user.get_profile.friends.all %}
+						<a href="{% url profile f.get_profile.url %}">{{ f.username}}</a><br/>
+						<a href="{% url profile f.get_profile.url %}"><img src={{ f.get_profile.thumbnail_url }} /></a><br/>
+						--------------- <br/>
+						<br/>
+					{% endfor %}
+					{% else %}
+                        <b>Attention</b><br/><br/> <br/> 
+						<ul>
+						<li>This site basically assumes that your user name is same as your Twitter Account Username(screen_name).</li><br/> 
+						<li>While Registration give your Twitter Account's username which is known as screen_name.</li><br/>
+						<li>Later Version Information: There will be validation that given username is yours or not.</li><br/> 
+						</ul>
+                        </p>
+
+                    {% endif %}
+                </div>
+            </div>
+	
+            <div id="push">&nbsp</div>
+            <div id="footer">
+                <p>Copyright 2011-and forever aren <a href="http://www.ardaeren.com/"><img src="http://media.djangoproject.com/img/badges/djangoproject120x25.gif" border="0" alt="What a fantastic thing is this..." title="Just Learn What is Django" /></a></p>
+            </div>
+        </div>
+		</center>
+    </body>
+</html>
+

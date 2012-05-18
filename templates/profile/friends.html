@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}{{ other_user.username }}'s Friends{% endblock %}
+
+{% block content %}
+    <h2>{{ other_user.username }} 's Friends</h2>
+    <p>
+    {% for f in other_user.get_profile.friends.all %}
+
+    <a href="{% url profile f.get_profile.url %}">{{ f.username }}</a><br/>
+	<a href="{% url profile f.get_profile.url %}"><img src={{ f.get_profile.thumbnail_url }} /></a><br/>
+	-------------------------<br/>
+    {% empty %}
+        {{ other_user.username}} , has not any friend yet.
+    {% endfor %}
+    </p>
+{% endblock %}
+

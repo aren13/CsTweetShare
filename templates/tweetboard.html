@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}My Tweetboard{% endblock %}
+
+{% block content %}
+<p>Welcome {{ user.first_name }}</p>
+<p>Profile URL: <a href="{% url profile user.get_profile.url %}"> Proflie</a></p>
+<h3>Updates</h3>
+<form method="post" action="{% url post user.get_profile.url %}">
+    {% csrf_token %}
+    {% include "base_form.html" %}
+    <input type="submit" value="Submit">
+</form>
+
+{% for group in updates %}
+    <h3>{{ group.name }}</h3>
+    {% for c in group.updates %}
+        {% include "profile/comment.html" %}
+    {% endfor %}
+{% endfor %}
+</p>
+{% endblock %}
+

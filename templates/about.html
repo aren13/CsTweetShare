@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}About{% endblock %}
+
+{% block content %}
+<h2>About</h2>
+<p>TweetShare is an Istanbul Bilgi University Comp 461 (Web Development) Project. It is a project for testing our web development knowledges with Django(which is becoming popular web freamework) and using twitter API.</p>
+<p>It's basically a portal for sharing user tweets and gives a chance to make comment(s) to friends tweet(s).  You can even post inside updates(in future, I'm planning to add making post to twitter with authentication to Twitter.).</p>
+<p> Feel free to ask any question to me by <a href="mailto:ardaeren13@gmail.com?Subject=TweetShare">sending mail</a> or <a href="http://twitter.com/#!/aren_13"> by following me at Twitter</a> or :) :) by adding me as a Friend in <a href={% url cts.share.views.profile user.get_profile.url %}> TweetShare </a> You can reach the code after we have not decidea aboput Licence options. But I guess it will be extremly open source, you can reach source code from <a href="https://github.com/aren13"> Coming Soon. </a>
+</p>
+<p></p>
+{% endblock %}
+
